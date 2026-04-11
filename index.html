@@ -22,79 +22,97 @@
     line-height:1.45;
   }
   .wrap{
-    max-width:1100px;
+    max-width:1400px;
     margin:0 auto;
-    padding:32px 20px 56px;
+    padding:28px 20px 40px;
   }
   h1{
-    margin:0 0 8px;
-    font-size:32px;
-    line-height:1.1;
+    margin:0 0 10px;
+    font-size:clamp(34px,5vw,62px);
+    line-height:1.02;
+    letter-spacing:-0.03em;
   }
   .sub{
     margin:0 0 28px;
     color:var(--muted);
-    font-size:15px;
+    font-size:clamp(18px,2vw,24px);
+    max-width:980px;
   }
   .grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-    gap:18px;
+    grid-template-columns:repeat(auto-fit, minmax(420px, 1fr));
+    gap:22px;
+    align-items:start;
   }
   .card{
     background:var(--card);
     border:1px solid var(--line);
-    border-radius:16px;
-    padding:18px 18px 16px;
-    box-shadow:0 1px 2px rgba(0,0,0,.03);
+    border-radius:28px;
+    padding:26px 28px;
+    box-shadow:0 1px 0 rgba(17,24,39,0.02);
   }
-  .head{
+  .top{
     display:flex;
     justify-content:space-between;
-    gap:16px;
     align-items:flex-start;
-    margin-bottom:12px;
-    padding-bottom:12px;
+    gap:20px;
+    padding-bottom:18px;
     border-bottom:1px solid var(--line);
+    margin-bottom:18px;
   }
   .name{
-    font-size:20px;
+    font-size:26px;
     font-weight:700;
-    line-height:1.2;
+    letter-spacing:-0.03em;
+    line-height:1.1;
+  }
+  .total-wrap{
+    text-align:right;
+    flex:0 0 auto;
+  }
+  .total-label{
+    color:var(--muted);
+    font-size:15px;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    margin-bottom:4px;
   }
   .total{
+    color:var(--accent);
+    font-size:42px;
+    font-weight:800;
+    letter-spacing:-0.03em;
+    line-height:1;
+    white-space:nowrap;
+  }
+  .row{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) auto;
+    gap:18px;
+    padding:11px 0;
+    border-bottom:1px solid var(--line);
+    font-size:20px;
+  }
+  .row:last-child{
+    border-bottom:none;
+    padding-bottom:0;
+  }
+  .player{
+    min-width:0;
+  }
+  .earnings{
     text-align:right;
     white-space:nowrap;
   }
-  .total .label{
-    display:block;
-    font-size:12px;
-    color:var(--muted);
-    text-transform:uppercase;
-    letter-spacing:.04em;
-    margin-bottom:2px;
+  @media (max-width: 720px){
+    .wrap{padding:20px 14px 28px;}
+    .grid{grid-template-columns:1fr; gap:16px;}
+    .card{padding:20px 18px; border-radius:22px;}
+    .top{gap:14px; padding-bottom:14px; margin-bottom:14px;}
+    .name{font-size:22px;}
+    .total{font-size:30px;}
+    .row{font-size:17px; gap:12px; padding:10px 0;}
   }
-  .total .value{
-    font-size:22px;
-    font-weight:800;
-    color:var(--accent);
-  }
-  ul{
-    list-style:none;
-    margin:0;
-    padding:0;
-  }
-  li{
-    display:flex;
-    justify-content:space-between;
-    gap:16px;
-    padding:7px 0;
-    border-bottom:1px solid #f1f5f9;
-    font-size:14px;
-  }
-  li:last-child{border-bottom:none}
-  .player{flex:1 1 auto}
-  .earn{flex:0 0 auto; font-variant-numeric:tabular-nums}
 </style>
 </head>
 <body>
@@ -102,788 +120,2353 @@
     <h1>Masters Pool Rosters</h1>
     <p class="sub">Each roster includes entrant name, all 12 players, projected earnings, and total projected earnings.</p>
     <div class="grid">
-<section class="card">
-      <div class="head">
-        <div class="name">Kaitlin MacRae</div>
-        <div class="total">
-          <span class="label">Total</span>
-          <span class="value">$9,806,000</span>
+
+      <section class="card">
+        <div class="top">
+          <div class="name">Kaitlin MacRae</div>
+          <div class="total-wrap">
+            <div class="total-label">Total</div>
+            <div class="total">$9,086,000</div>
+          </div>
         </div>
-      </div>
-      <ul>
-        <li><span class="player">Rory McIlroy</span><span class="earn">$4,200,000</span></li>
-        <li><span class="player">Tommy Fleetwood</span><span class="earn">$630,000</span></li>
-        <li><span class="player">Akshay Bhatia</span><span class="earn">$137,500</span></li>
-        <li><span class="player">Tyrrell Hatton</span><span class="earn">$100,500</span></li>
-        <li><span class="player">Sam Burns</span><span class="earn">$4,200,000</span></li>
-        <li><span class="player">Max Homa</span><span class="earn">$373,500</span></li>
-        <li><span class="player">J.J. Spaun</span><span class="earn">$100,500</span></li>
-        <li><span class="player">Rasmus Højgaard</span><span class="earn">$0</span></li>
-        <li><span class="player">Max Greyserman</span><span class="earn">$0</span></li>
-        <li><span class="player">Tom McKibbin</span><span class="earn">$64,000</span></li>
-        <li><span class="player">Danny Willett</span><span class="earn">$0</span></li>
-        <li><span class="player">Mike Weir</span><span class="earn">$0</span></li>
-      </ul>
-    </section>
-<section class="card">
-      <div class="head">
-        <div class="name">chris bencomo</div>
-        <div class="total">
-          <span class="label">Total</span>
-          <span class="value">$9,338,500</span>
+    
+        <div class="row">
+          <div class="player">Rory McIlroy</div>
+          <div class="earnings">$4,200,000</div>
         </div>
-      </div>
-      <ul>
-        <li><span class="player">Scottie Scheffler</span><span class="earn">$840,000</span></li>
-        <li><span class="player">Bryson DeChambeau</span><span class="earn">$0</span></li>
-        <li><span class="player">Ludvig Åberg</span><span class="earn">$100,500</span></li>
-        <li><span class="player">Akshay Bhatia</span><span class="earn">$137,500</span></li>
-        <li><span class="player">Jason Day</span><span class="earn">$1,587,000</span></li>
-        <li><span class="player">Sam Burns</span><span class="earn">$4,200,000</span></li>
-        <li><span class="player">Shane Lowry</span><span class="earn">$840,000</span></li>
-        <li><span class="player">Gary Woodland</span><span class="earn">$630,000</span></li>
-        <li><span class="player">Aaron Rai</span><span class="earn">$630,000</span></li>
-        <li><span class="player">Rasmus Neergaard-Petersen</span><span class="earn">$0</span></li>
-        <li><span class="player">Michael Brennan</span><span class="earn">$373,500</span></li>
-        <li><span class="player">Danny Willett</span><span class="earn">$0</span></li>
-      </ul>
-    </section>
-<section class="card">
-      <div class="head">
-        <div class="name">Eric Goud</div>
-        <div class="total">
-          <span class="label">Total</span>
-          <span class="value">$9,202,000</span>
+        
+        <div class="row">
+          <div class="player">Tom McKibbin</div>
+          <div class="earnings">$0</div>
         </div>
-      </div>
-      <ul>
-        <li><span class="player">Scottie Scheffler</span><span class="earn">$840,000</span></li>
-        <li><span class="player">Rory McIlroy</span><span class="earn">$4,200,000</span></li>
-        <li><span class="player">Xander Schauffele</span><span class="earn">$840,000</span></li>
-        <li><span class="player">Ludvig Åberg</span><span class="earn">$100,500</span></li>
-        <li><span class="player">Jason Day</span><span class="earn">$1,587,000</span></li>
-        <li><span class="player">Shane Lowry</span><span class="earn">$840,000</span></li>
-        <li><span class="player">Cameron Smith</span><span class="earn">$100,500</span></li>
-        <li><span class="player">Sungjae Im</span><span class="earn">$0</span></li>
-        <li><span class="player">Aaron Rai</span><span class="earn">$630,000</span></li>
-        <li><span class="player">Brian Harman</span><span class="earn">$0</span></li>
-        <li><span class="player">Charl Schwartzel</span><span class="earn">$64,000</span></li>
-        <li><span class="player">Davis Riley</span><span class="earn">$0</span></li>
-      </ul>
-    </section>
-<section class="card">
-      <div class="head">
-        <div class="name">Becca Lane</div>
-        <div class="total">
-          <span class="label">Total</span>
-          <span class="value">$8,973,000</span>
+        
+        <div class="row">
+          <div class="player">Max Greyserman</div>
+          <div class="earnings">$0</div>
         </div>
-      </div>
-      <ul>
-        <li><span class="player">Scottie Scheffler</span><span class="earn">$840,000</span></li>
-        <li><span class="player">Rory McIlroy</span><span class="earn">$4,200,000</span></li>
-        <li><span class="player">Xander Schauffele</span><span class="earn">$840,000</span></li>
-        <li><span class="player">Ludvig Åberg</span><span class="earn">$100,500</span></li>
-        <li><span class="player">Corey Conners</span><span class="earn">$64,000</span></li>
-        <li><span class="player">Jason Day</span><span class="earn">$1,587,000</span></li>
-        <li><span class="player">Si Woo Kim</span><span class="earn">$64,000</span></li>
-        <li><span class="player">Shane Lowry</span><span class="earn">$840,000</span></li>
-        <li><span class="player">Brian Harman</span><span class="earn">$0</span></li>
-        <li><span class="player">Sergio García</span><span class="earn">$373,500</span></li>
-        <li><span class="player">Bubba Watson</span><span class="earn">$0</span></li>
-        <li><span class="player">Zach Johnson</span><span class="earn">$64,000</span></li>
-      </ul>
-    </section>
-<section class="card">
-      <div class="head">
-        <div class="name">Sasha Tucker</div>
-        <div class="total">
-          <span class="label">Total</span>
-          <span class="value">$8,087,500</span>
+        
+        <div class="row">
+          <div class="player">Rasmus Højgaard</div>
+          <div class="earnings">$67,500</div>
         </div>
-      </div>
-      <ul>
-        <li><span class="player">Scottie Scheffler</span><span class="earn">$840,000</span></li>
-        <li><span class="player">Rory McIlroy</span><span class="earn">$4,200,000</span></li>
-        <li><span class="player">Ludvig Åberg</span><span class="earn">$100,500</span></li>
-        <li><span class="player">Collin Morikawa</span><span class="earn">$100,500</span></li>
-        <li><span class="player">Adam Scott</span><span class="earn">$373,500</span></li>
-        <li><span class="player">Corey Conners</span><span class="earn">$64,000</span></li>
-        <li><span class="player">Jason Day</span><span class="earn">$1,587,000</span></li>
-        <li><span class="player">Si Woo Kim</span><span class="earn">$64,000</span></li>
-        <li><span class="player">Nick Taylor</span><span class="earn">$630,000</span></li>
-        <li><span class="player">Michael Kim</span><span class="earn">$64,000</span></li>
-        <li><span class="player">Bubba Watson</span><span class="earn">$0</span></li>
-        <li><span class="player">Zach Johnson</span><span class="earn">$64,000</span></li>
-      </ul>
-    </section>
-<section class="card">
-      <div class="head">
-        <div class="name">Jude Kizer</div>
-        <div class="total">
-          <span class="label">Total</span>
-          <span class="value">$7,392,500</span>
+        
+        <div class="row">
+          <div class="player">J.J. Spaun</div>
+          <div class="earnings">$0</div>
         </div>
-      </div>
-      <ul>
-        <li><span class="player">Rory McIlroy</span><span class="earn">$4,200,000</span></li>
-        <li><span class="player">Ludvig Åberg</span><span class="earn">$100,500</span></li>
-        <li><span class="player">Viktor Hovland</span><span class="earn">$64,000</span></li>
-        <li><span class="player">Patrick Cantlay</span><span class="earn">$0</span></li>
-        <li><span class="player">Jason Day</span><span class="earn">$1,587,000</span></li>
-        <li><span class="player">Si Woo Kim</span><span class="earn">$64,000</span></li>
-        <li><span class="player">Nicolai Højgaard</span><span class="earn">$0</span></li>
-        <li><span class="player">Max Homa</span><span class="earn">$373,500</span></li>
-        <li><span class="player">Sergio García</span><span class="earn">$373,500</span></li>
-        <li><span class="player">Nick Taylor</span><span class="earn">$630,000</span></li>
-        <li><span class="player">Davis Riley</span><span class="earn">$0</span></li>
-        <li><span class="player">Fred Couples</span><span class="earn">$0</span></li>
-      </ul>
-    </section>
-<section class="card">
-      <div class="head">
-        <div class="name">Darren Bilbao</div>
-        <div class="total">
-          <span class="label">Total</span>
-          <span class="value">$6,984,000</span>
+        
+        <div class="row">
+          <div class="player">Max Homa</div>
+          <div class="earnings">$397,000</div>
         </div>
-      </div>
-      <ul>
-        <li><span class="player">Rory McIlroy</span><span class="earn">$4,200,000</span></li>
-        <li><span class="player">Ludvig Åberg</span><span class="earn">$100,500</span></li>
-        <li><span class="player">Justin Rose</span><span class="earn">$840,000</span></li>
-        <li><span class="player">Min Woo Lee</span><span class="earn">$0</span></li>
-        <li><span class="player">Adam Scott</span><span class="earn">$373,500</span></li>
-        <li><span class="player">Shane Lowry</span><span class="earn">$840,000</span></li>
-        <li><span class="player">Nicolai Højgaard</span><span class="earn">$0</span></li>
-        <li><span class="player">Sungjae Im</span><span class="earn">$0</span></li>
-        <li><span class="player">Aaron Rai</span><span class="earn">$630,000</span></li>
-        <li><span class="player">Brian Harman</span><span class="earn">$0</span></li>
-        <li><span class="player">Sami Välimäki</span><span class="earn">$0</span></li>
-        <li><span class="player">Davis Riley</span><span class="earn">$0</span></li>
-      </ul>
-    </section>
-<section class="card">
-      <div class="head">
-        <div class="name">Jeff Elorriaga</div>
-        <div class="total">
-          <span class="label">Total</span>
-          <span class="value">$6,738,500</span>
+        
+        <div class="row">
+          <div class="player">Sam Burns</div>
+          <div class="earnings">$2,520,000</div>
         </div>
-      </div>
-      <ul>
-        <li><span class="player">Scottie Scheffler</span><span class="earn">$840,000</span></li>
-        <li><span class="player">Xander Schauffele</span><span class="earn">$840,000</span></li>
-        <li><span class="player">Ludvig Åberg</span><span class="earn">$100,500</span></li>
-        <li><span class="player">Robert MacIntyre</span><span class="earn">$0</span></li>
-        <li><span class="player">Corey Conners</span><span class="earn">$64,000</span></li>
-        <li><span class="player">Sam Burns</span><span class="earn">$4,200,000</span></li>
-        <li><span class="player">Jacob Bridgeman</span><span class="earn">$630,000</span></li>
-        <li><span class="player">Daniel Berger</span><span class="earn">$0</span></li>
-        <li><span class="player">Alex Noren</span><span class="earn">$0</span></li>
-        <li><span class="player">Max Greyserman</span><span class="earn">$0</span></li>
-        <li><span class="player">Zach Johnson</span><span class="earn">$64,000</span></li>
-        <li><span class="player">Danny Willett</span><span class="earn">$0</span></li>
-      </ul>
-    </section>
-<section class="card">
-      <div class="head">
-        <div class="name">Alex Grimm</div>
-        <div class="total">
-          <span class="label">Total</span>
-          <span class="value">$6,278,500</span>
+        
+        <div class="row">
+          <div class="player">Tyrrell Hatton</div>
+          <div class="earnings">$781,500</div>
         </div>
-      </div>
-      <ul>
-        <li><span class="player">Scottie Scheffler</span><span class="earn">$840,000</span></li>
-        <li><span class="player">Bryson DeChambeau</span><span class="earn">$0</span></li>
-        <li><span class="player">Collin Morikawa</span><span class="earn">$100,500</span></li>
-        <li><span class="player">Patrick Reed</span><span class="earn">$1,587,000</span></li>
-        <li><span class="player">Jason Day</span><span class="earn">$1,587,000</span></li>
-        <li><span class="player">Shane Lowry</span><span class="earn">$840,000</span></li>
-        <li><span class="player">Nicolai Højgaard</span><span class="earn">$0</span></li>
-        <li><span class="player">Gary Woodland</span><span class="earn">$630,000</span></li>
-        <li><span class="player">Aaron Rai</span><span class="earn">$630,000</span></li>
-        <li><span class="player">Aldrich Potgieter</span><span class="earn">$0</span></li>
-        <li><span class="player">Bubba Watson</span><span class="earn">$0</span></li>
-        <li><span class="player">Charl Schwartzel</span><span class="earn">$64,000</span></li>
-      </ul>
-    </section>
-<section class="card">
-      <div class="head">
-        <div class="name">Will Borba</div>
-        <div class="total">
-          <span class="label">Total</span>
-          <span class="value">$6,173,000</span>
+        
+        <div class="row">
+          <div class="player">Akshay Bhatia</div>
+          <div class="earnings">$0</div>
         </div>
-      </div>
-      <ul>
-        <li><span class="player">Ludvig Åberg</span><span class="earn">$100,500</span></li>
-        <li><span class="player">Cameron Young</span><span class="earn">$137,500</span></li>
-        <li><span class="player">Matt Fitzpatrick</span><span class="earn">$100,500</span></li>
-        <li><span class="player">Robert MacIntyre</span><span class="earn">$0</span></li>
-        <li><span class="player">Sam Burns</span><span class="earn">$4,200,000</span></li>
-        <li><span class="player">Shane Lowry</span><span class="earn">$840,000</span></li>
-        <li><span class="player">Sungjae Im</span><span class="earn">$0</span></li>
-        <li><span class="player">J.J. Spaun</span><span class="earn">$100,500</span></li>
-        <li><span class="player">Brian Harman</span><span class="earn">$0</span></li>
-        <li><span class="player">Haotong Li</span><span class="earn">$630,000</span></li>
-        <li><span class="player">Zach Johnson</span><span class="earn">$64,000</span></li>
-        <li><span class="player">Mateo Pulcini (A)</span><span class="earn">$0</span></li>
-      </ul>
-    </section>
-<section class="card">
-      <div class="head">
-        <div class="name">Harry Horan</div>
-        <div class="total">
-          <span class="label">Total</span>
-          <span class="value">$6,108,500</span>
+        
+        <div class="row">
+          <div class="player">Tommy Fleetwood</div>
+          <div class="earnings">$1,120,000</div>
         </div>
-      </div>
-      <ul>
-        <li><span class="player">Scottie Scheffler</span><span class="earn">$840,000</span></li>
-        <li><span class="player">Jon Rahm</span><span class="earn">$0</span></li>
-        <li><span class="player">Xander Schauffele</span><span class="earn">$840,000</span></li>
-        <li><span class="player">Ludvig Åberg</span><span class="earn">$100,500</span></li>
-        <li><span class="player">Corey Conners</span><span class="earn">$64,000</span></li>
-        <li><span class="player">Si Woo Kim</span><span class="earn">$64,000</span></li>
-        <li><span class="player">Sam Burns</span><span class="earn">$4,200,000</span></li>
-        <li><span class="player">Maverick McNealy</span><span class="earn">$0</span></li>
-        <li><span class="player">Casey Jarvis</span><span class="earn">$0</span></li>
-        <li><span class="player">Alex Noren</span><span class="earn">$0</span></li>
-        <li><span class="player">Bubba Watson</span><span class="earn">$0</span></li>
-        <li><span class="player">Davis Riley</span><span class="earn">$0</span></li>
-      </ul>
-    </section>
-<section class="card">
-      <div class="head">
-        <div class="name">Claire Maynard</div>
-        <div class="total">
-          <span class="label">Total</span>
-          <span class="value">$5,202,500</span>
+        
+        <div class="row">
+          <div class="player">Danny Willett</div>
+          <div class="earnings">$0</div>
         </div>
-      </div>
-      <ul>
-        <li><span class="player">Scottie Scheffler</span><span class="earn">$840,000</span></li>
-        <li><span class="player">Bryson DeChambeau</span><span class="earn">$0</span></li>
-        <li><span class="player">Ludvig Åberg</span><span class="earn">$100,500</span></li>
-        <li><span class="player">Hideki Matsuyama</span><span class="earn">$373,500</span></li>
-        <li><span class="player">Jason Day</span><span class="earn">$1,587,000</span></li>
-        <li><span class="player">Jake Knapp</span><span class="earn">$137,500</span></li>
-        <li><span class="player">Shane Lowry</span><span class="earn">$840,000</span></li>
-        <li><span class="player">Sungjae Im</span><span class="earn">$0</span></li>
-        <li><span class="player">Nick Taylor</span><span class="earn">$630,000</span></li>
-        <li><span class="player">Michael Kim</span><span class="earn">$64,000</span></li>
-        <li><span class="player">Bubba Watson</span><span class="earn">$0</span></li>
-        <li><span class="player">Brian Campbell</span><span class="earn">$630,000</span></li>
-      </ul>
-    </section>
-<section class="card">
-      <div class="head">
-        <div class="name">Kevin clark</div>
-        <div class="total">
-          <span class="label">Total</span>
-          <span class="value">$4,990,500</span>
+        
+        <div class="row">
+          <div class="player">Mike Weir</div>
+          <div class="earnings">$0</div>
         </div>
-      </div>
-      <ul>
-        <li><span class="player">Jon Rahm</span><span class="earn">$0</span></li>
-        <li><span class="player">Ludvig Åberg</span><span class="earn">$100,500</span></li>
-        <li><span class="player">Patrick Reed</span><span class="earn">$1,587,000</span></li>
-        <li><span class="player">Jordan Spieth</span><span class="earn">$373,500</span></li>
-        <li><span class="player">Corey Conners</span><span class="earn">$64,000</span></li>
-        <li><span class="player">Jason Day</span><span class="earn">$1,587,000</span></li>
-        <li><span class="player">Jake Knapp</span><span class="earn">$137,500</span></li>
-        <li><span class="player">Dustin Johnson</span><span class="earn">$137,500</span></li>
-        <li><span class="player">Harry Hall</span><span class="earn">$0</span></li>
-        <li><span class="player">Haotong Li</span><span class="earn">$630,000</span></li>
-        <li><span class="player">Michael Brennan</span><span class="earn">$373,500</span></li>
-        <li><span class="player">Davis Riley</span><span class="earn">$0</span></li>
-      </ul>
-    </section>
-<section class="card">
-      <div class="head">
-        <div class="name">Bob Monroe</div>
-        <div class="total">
-          <span class="label">Total</span>
-          <span class="value">$4,920,000</span>
+        </section>
+      <section class="card">
+        <div class="top">
+          <div class="name">Eric Goud</div>
+          <div class="total-wrap">
+            <div class="total-label">Total</div>
+            <div class="total">$7,370,500</div>
+          </div>
         </div>
-      </div>
-      <ul>
-        <li><span class="player">Scottie Scheffler</span><span class="earn">$840,000</span></li>
-        <li><span class="player">Xander Schauffele</span><span class="earn">$840,000</span></li>
-        <li><span class="player">Cameron Young</span><span class="earn">$137,500</span></li>
-        <li><span class="player">Matt Fitzpatrick</span><span class="earn">$100,500</span></li>
-        <li><span class="player">Jason Day</span><span class="earn">$1,587,000</span></li>
-        <li><span class="player">Shane Lowry</span><span class="earn">$840,000</span></li>
-        <li><span class="player">Ben Griffin</span><span class="earn">$373,500</span></li>
-        <li><span class="player">Dustin Johnson</span><span class="earn">$137,500</span></li>
-        <li><span class="player">Alex Noren</span><span class="earn">$0</span></li>
-        <li><span class="player">Carlos Ortiz</span><span class="earn">$0</span></li>
-        <li><span class="player">Bubba Watson</span><span class="earn">$0</span></li>
-        <li><span class="player">Charl Schwartzel</span><span class="earn">$64,000</span></li>
-      </ul>
-    </section>
-<section class="card">
-      <div class="head">
-        <div class="name">Parris Grieder</div>
-        <div class="total">
-          <span class="label">Total</span>
-          <span class="value">$4,506,500</span>
+    
+        <div class="row">
+          <div class="player">Xander Schauffele</div>
+          <div class="earnings">$397,000</div>
         </div>
-      </div>
-      <ul>
-        <li><span class="player">Scottie Scheffler</span><span class="earn">$840,000</span></li>
-        <li><span class="player">Bryson DeChambeau</span><span class="earn">$0</span></li>
-        <li><span class="player">Ludvig Åberg</span><span class="earn">$100,500</span></li>
-        <li><span class="player">Tommy Fleetwood</span><span class="earn">$630,000</span></li>
-        <li><span class="player">Adam Scott</span><span class="earn">$373,500</span></li>
-        <li><span class="player">Corey Conners</span><span class="earn">$64,000</span></li>
-        <li><span class="player">Jason Day</span><span class="earn">$1,587,000</span></li>
-        <li><span class="player">J.J. Spaun</span><span class="earn">$100,500</span></li>
-        <li><span class="player">Ryan Gerard</span><span class="earn">$373,500</span></li>
-        <li><span class="player">Harry Hall</span><span class="earn">$0</span></li>
-        <li><span class="player">Michael Brennan</span><span class="earn">$373,500</span></li>
-        <li><span class="player">Charl Schwartzel</span><span class="earn">$64,000</span></li>
-      </ul>
-    </section>
-<section class="card">
-      <div class="head">
-        <div class="name">Mike Leong</div>
-        <div class="total">
-          <span class="label">Total</span>
-          <span class="value">$4,316,000</span>
+        
+        <div class="row">
+          <div class="player">Ludvig Åberg</div>
+          <div class="earnings">$224,000</div>
         </div>
-      </div>
-      <ul>
-        <li><span class="player">Scottie Scheffler</span><span class="earn">$840,000</span></li>
-        <li><span class="player">Xander Schauffele</span><span class="earn">$840,000</span></li>
-        <li><span class="player">Ludvig Åberg</span><span class="earn">$100,500</span></li>
-        <li><span class="player">Cameron Young</span><span class="earn">$137,500</span></li>
-        <li><span class="player">Adam Scott</span><span class="earn">$373,500</span></li>
-        <li><span class="player">Corey Conners</span><span class="earn">$64,000</span></li>
-        <li><span class="player">Jason Day</span><span class="earn">$1,587,000</span></li>
-        <li><span class="player">Sungjae Im</span><span class="earn">$0</span></li>
-        <li><span class="player">Casey Jarvis</span><span class="earn">$0</span></li>
-        <li><span class="player">Matt McCarty</span><span class="earn">$373,500</span></li>
-        <li><span class="player">Bubba Watson</span><span class="earn">$0</span></li>
-        <li><span class="player">Sami Välimäki</span><span class="earn">$0</span></li>
-      </ul>
-    </section>
-<section class="card">
-      <div class="head">
-        <div class="name">Conor Monahan</div>
-        <div class="total">
-          <span class="label">Total</span>
-          <span class="value">$4,098,500</span>
+        
+        <div class="row">
+          <div class="player">Jason Day</div>
+          <div class="earnings">$781,500</div>
         </div>
-      </div>
-      <ul>
-        <li><span class="player">Scottie Scheffler</span><span class="earn">$840,000</span></li>
-        <li><span class="player">Xander Schauffele</span><span class="earn">$840,000</span></li>
-        <li><span class="player">Jon Rahm</span><span class="earn">$0</span></li>
-        <li><span class="player">Patrick Reed</span><span class="earn">$1,587,000</span></li>
-        <li><span class="player">Jake Knapp</span><span class="earn">$137,500</span></li>
-        <li><span class="player">Jacob Bridgeman</span><span class="earn">$630,000</span></li>
-        <li><span class="player">Marco Penge</span><span class="earn">$0</span></li>
-        <li><span class="player">Maverick McNealy</span><span class="earn">$0</span></li>
-        <li><span class="player">Michael Kim</span><span class="earn">$64,000</span></li>
-        <li><span class="player">Max Greyserman</span><span class="earn">$0</span></li>
-        <li><span class="player">Davis Riley</span><span class="earn">$0</span></li>
-        <li><span class="player">Jackson Herrington (a)</span><span class="earn">$0</span></li>
-      </ul>
-    </section>
-<section class="card">
-      <div class="head">
-        <div class="name">Matt Long</div>
-        <div class="total">
-          <span class="label">Total</span>
-          <span class="value">$4,043,000</span>
+        
+        <div class="row">
+          <div class="player">Shane Lowry</div>
+          <div class="earnings">$1,120,000</div>
         </div>
-      </div>
-      <ul>
-        <li><span class="player">Scottie Scheffler</span><span class="earn">$840,000</span></li>
-        <li><span class="player">Jon Rahm</span><span class="earn">$0</span></li>
-        <li><span class="player">Collin Morikawa</span><span class="earn">$100,500</span></li>
-        <li><span class="player">Brooks Koepka</span><span class="earn">$373,500</span></li>
-        <li><span class="player">Jason Day</span><span class="earn">$1,587,000</span></li>
-        <li><span class="player">Jake Knapp</span><span class="earn">$137,500</span></li>
-        <li><span class="player">Shane Lowry</span><span class="earn">$840,000</span></li>
-        <li><span class="player">Cameron Smith</span><span class="earn">$100,500</span></li>
-        <li><span class="player">Brian Harman</span><span class="earn">$0</span></li>
-        <li><span class="player">Nico Echavarria</span><span class="earn">$0</span></li>
-        <li><span class="player">Bubba Watson</span><span class="earn">$0</span></li>
-        <li><span class="player">Zach Johnson</span><span class="earn">$64,000</span></li>
-      </ul>
-    </section>
-<section class="card">
-      <div class="head">
-        <div class="name">Shane Curran</div>
-        <div class="total">
-          <span class="label">Total</span>
-          <span class="value">$3,897,000</span>
+        
+        <div class="row">
+          <div class="player">Cameron Smith</div>
+          <div class="earnings">$0</div>
         </div>
-      </div>
-      <ul>
-        <li><span class="player">Bryson DeChambeau</span><span class="earn">$0</span></li>
-        <li><span class="player">Cameron Young</span><span class="earn">$137,500</span></li>
-        <li><span class="player">Collin Morikawa</span><span class="earn">$100,500</span></li>
-        <li><span class="player">Robert MacIntyre</span><span class="earn">$0</span></li>
-        <li><span class="player">Jason Day</span><span class="earn">$1,587,000</span></li>
-        <li><span class="player">Shane Lowry</span><span class="earn">$840,000</span></li>
-        <li><span class="player">Gary Woodland</span><span class="earn">$630,000</span></li>
-        <li><span class="player">J.J. Spaun</span><span class="earn">$100,500</span></li>
-        <li><span class="player">Casey Jarvis</span><span class="earn">$0</span></li>
-        <li><span class="player">Sergio García</span><span class="earn">$373,500</span></li>
-        <li><span class="player">Charl Schwartzel</span><span class="earn">$64,000</span></li>
-        <li><span class="player">Zach Johnson</span><span class="earn">$64,000</span></li>
-      </ul>
-    </section>
-<section class="card">
-      <div class="head">
-        <div class="name">bholsberry</div>
-        <div class="total">
-          <span class="label">Total</span>
-          <span class="value">$3,306,000</span>
+        
+        <div class="row">
+          <div class="player">Sungjae Im</div>
+          <div class="earnings">$144,500</div>
         </div>
-      </div>
-      <ul>
-        <li><span class="player">Scottie Scheffler</span><span class="earn">$840,000</span></li>
-        <li><span class="player">Jon Rahm</span><span class="earn">$0</span></li>
-        <li><span class="player">Xander Schauffele</span><span class="earn">$840,000</span></li>
-        <li><span class="player">Cameron Young</span><span class="earn">$137,500</span></li>
-        <li><span class="player">Corey Conners</span><span class="earn">$64,000</span></li>
-        <li><span class="player">Jacob Bridgeman</span><span class="earn">$630,000</span></li>
-        <li><span class="player">Daniel Berger</span><span class="earn">$0</span></li>
-        <li><span class="player">J.J. Spaun</span><span class="earn">$100,500</span></li>
-        <li><span class="player">Aaron Rai</span><span class="earn">$630,000</span></li>
-        <li><span class="player">Brian Harman</span><span class="earn">$0</span></li>
-        <li><span class="player">Zach Johnson</span><span class="earn">$64,000</span></li>
-        <li><span class="player">Mason Howell (A)</span><span class="earn">$0</span></li>
-      </ul>
-    </section>
-<section class="card">
-      <div class="head">
-        <div class="name">Chalmers</div>
-        <div class="total">
-          <span class="label">Total</span>
-          <span class="value">$3,113,000</span>
+        
+        <div class="row">
+          <div class="player">Aaron Rai</div>
+          <div class="earnings">$144,500</div>
         </div>
-      </div>
-      <ul>
-        <li><span class="player">Scottie Scheffler</span><span class="earn">$840,000</span></li>
-        <li><span class="player">Ludvig Åberg</span><span class="earn">$100,500</span></li>
-        <li><span class="player">Matt Fitzpatrick</span><span class="earn">$100,500</span></li>
-        <li><span class="player">Tommy Fleetwood</span><span class="earn">$630,000</span></li>
-        <li><span class="player">Adam Scott</span><span class="earn">$373,500</span></li>
-        <li><span class="player">Corey Conners</span><span class="earn">$64,000</span></li>
-        <li><span class="player">Shane Lowry</span><span class="earn">$840,000</span></li>
-        <li><span class="player">Cameron Smith</span><span class="earn">$100,500</span></li>
-        <li><span class="player">Casey Jarvis</span><span class="earn">$0</span></li>
-        <li><span class="player">Brian Harman</span><span class="earn">$0</span></li>
-        <li><span class="player">Charl Schwartzel</span><span class="earn">$64,000</span></li>
-        <li><span class="player">Davis Riley</span><span class="earn">$0</span></li>
-      </ul>
-    </section>
-<section class="card">
-      <div class="head">
-        <div class="name">Kameron Niskefat</div>
-        <div class="total">
-          <span class="label">Total</span>
-          <span class="value">$3,087,000</span>
+        
+        <div class="row">
+          <div class="player">Brian Harman</div>
+          <div class="earnings">$67,500</div>
         </div>
-      </div>
-      <ul>
-        <li><span class="player">Scottie Scheffler</span><span class="earn">$840,000</span></li>
-        <li><span class="player">Cameron Young</span><span class="earn">$137,500</span></li>
-        <li><span class="player">Matt Fitzpatrick</span><span class="earn">$100,500</span></li>
-        <li><span class="player">Akshay Bhatia</span><span class="earn">$137,500</span></li>
-        <li><span class="player">Jake Knapp</span><span class="earn">$137,500</span></li>
-        <li><span class="player">Nicolai Højgaard</span><span class="earn">$0</span></li>
-        <li><span class="player">Jacob Bridgeman</span><span class="earn">$630,000</span></li>
-        <li><span class="player">Sungjae Im</span><span class="earn">$0</span></li>
-        <li><span class="player">Ryan Gerard</span><span class="earn">$373,500</span></li>
-        <li><span class="player">Aaron Rai</span><span class="earn">$630,000</span></li>
-        <li><span class="player">Davis Riley</span><span class="earn">$0</span></li>
-        <li><span class="player">Ethan Fang (A)</span><span class="earn">$100,500</span></li>
-      </ul>
-    </section>
-<section class="card">
-      <div class="head">
-        <div class="name">Ryan Tucker</div>
-        <div class="total">
-          <span class="label">Total</span>
-          <span class="value">$3,040,000</span>
+        
+        <div class="row">
+          <div class="player">Charl Schwartzel</div>
+          <div class="earnings">$67,500</div>
         </div>
-      </div>
-      <ul>
-        <li><span class="player">Scottie Scheffler</span><span class="earn">$840,000</span></li>
-        <li><span class="player">Bryson DeChambeau</span><span class="earn">$0</span></li>
-        <li><span class="player">Xander Schauffele</span><span class="earn">$840,000</span></li>
-        <li><span class="player">Ludvig Åberg</span><span class="earn">$100,500</span></li>
-        <li><span class="player">Corey Conners</span><span class="earn">$64,000</span></li>
-        <li><span class="player">Si Woo Kim</span><span class="earn">$64,000</span></li>
-        <li><span class="player">Sungjae Im</span><span class="earn">$0</span></li>
-        <li><span class="player">Max Homa</span><span class="earn">$373,500</span></li>
-        <li><span class="player">Brian Harman</span><span class="earn">$0</span></li>
-        <li><span class="player">Nick Taylor</span><span class="earn">$630,000</span></li>
-        <li><span class="player">Charl Schwartzel</span><span class="earn">$64,000</span></li>
-        <li><span class="player">Zach Johnson</span><span class="earn">$64,000</span></li>
-      </ul>
-    </section>
-<section class="card">
-      <div class="head">
-        <div class="name">Dylan Halesworth</div>
-        <div class="total">
-          <span class="label">Total</span>
-          <span class="value">$3,012,500</span>
+        
+        <div class="row">
+          <div class="player">Davis Riley</div>
+          <div class="earnings">$0</div>
         </div>
-      </div>
-      <ul>
-        <li><span class="player">Bryson DeChambeau</span><span class="earn">$0</span></li>
-        <li><span class="player">Ludvig Åberg</span><span class="earn">$100,500</span></li>
-        <li><span class="player">Justin Rose</span><span class="earn">$840,000</span></li>
-        <li><span class="player">Viktor Hovland</span><span class="earn">$64,000</span></li>
-        <li><span class="player">Adam Scott</span><span class="earn">$373,500</span></li>
-        <li><span class="player">Shane Lowry</span><span class="earn">$840,000</span></li>
-        <li><span class="player">Sungjae Im</span><span class="earn">$0</span></li>
-        <li><span class="player">J.J. Spaun</span><span class="earn">$100,500</span></li>
-        <li><span class="player">Brian Harman</span><span class="earn">$0</span></li>
-        <li><span class="player">Michael Kim</span><span class="earn">$64,000</span></li>
-        <li><span class="player">Davis Riley</span><span class="earn">$0</span></li>
-        <li><span class="player">Brian Campbell</span><span class="earn">$630,000</span></li>
-      </ul>
-    </section>
-<section class="card">
-      <div class="head">
-        <div class="name">David Watkins</div>
-        <div class="total">
-          <span class="label">Total</span>
-          <span class="value">$2,912,000</span>
+        
+        <div class="row">
+          <div class="player">Rory McIlroy</div>
+          <div class="earnings">$4,200,000</div>
         </div>
-      </div>
-      <ul>
-        <li><span class="player">Scottie Scheffler</span><span class="earn">$840,000</span></li>
-        <li><span class="player">Jon Rahm</span><span class="earn">$0</span></li>
-        <li><span class="player">Xander Schauffele</span><span class="earn">$840,000</span></li>
-        <li><span class="player">Matt Fitzpatrick</span><span class="earn">$100,500</span></li>
-        <li><span class="player">Corey Conners</span><span class="earn">$64,000</span></li>
-        <li><span class="player">Nicolai Højgaard</span><span class="earn">$0</span></li>
-        <li><span class="player">Jacob Bridgeman</span><span class="earn">$630,000</span></li>
-        <li><span class="player">Sungjae Im</span><span class="earn">$0</span></li>
-        <li><span class="player">Ryan Gerard</span><span class="earn">$373,500</span></li>
-        <li><span class="player">Casey Jarvis</span><span class="earn">$0</span></li>
-        <li><span class="player">Charl Schwartzel</span><span class="earn">$64,000</span></li>
-        <li><span class="player">Davis Riley</span><span class="earn">$0</span></li>
-      </ul>
-    </section>
-<section class="card">
-      <div class="head">
-        <div class="name">Mike Killam</div>
-        <div class="total">
-          <span class="label">Total</span>
-          <span class="value">$2,874,000</span>
+        
+        <div class="row">
+          <div class="player">Scottie Scheffler</div>
+          <div class="earnings">$224,000</div>
         </div>
-      </div>
-      <ul>
-        <li><span class="player">Ludvig Åberg</span><span class="earn">$100,500</span></li>
-        <li><span class="player">Cameron Young</span><span class="earn">$137,500</span></li>
-        <li><span class="player">Matt Fitzpatrick</span><span class="earn">$100,500</span></li>
-        <li><span class="player">Akshay Bhatia</span><span class="earn">$137,500</span></li>
-        <li><span class="player">Si Woo Kim</span><span class="earn">$64,000</span></li>
-        <li><span class="player">Shane Lowry</span><span class="earn">$840,000</span></li>
-        <li><span class="player">Max Homa</span><span class="earn">$373,500</span></li>
-        <li><span class="player">Keegan Bradley</span><span class="earn">$373,500</span></li>
-        <li><span class="player">Brian Harman</span><span class="earn">$0</span></li>
-        <li><span class="player">Sergio García</span><span class="earn">$373,500</span></li>
-        <li><span class="player">Michael Brennan</span><span class="earn">$373,500</span></li>
-        <li><span class="player">Bubba Watson</span><span class="earn">$0</span></li>
-      </ul>
-    </section>
-<section class="card">
-      <div class="head">
-        <div class="name">Jason Maynard</div>
-        <div class="total">
-          <span class="label">Total</span>
-          <span class="value">$2,736,500</span>
+        </section>
+      <section class="card">
+        <div class="top">
+          <div class="name">Becca Lane</div>
+          <div class="total-wrap">
+            <div class="total-label">Total</div>
+            <div class="total">$7,226,000</div>
+          </div>
         </div>
-      </div>
-      <ul>
-        <li><span class="player">Bryson DeChambeau</span><span class="earn">$0</span></li>
-        <li><span class="player">Jon Rahm</span><span class="earn">$0</span></li>
-        <li><span class="player">Ludvig Åberg</span><span class="earn">$100,500</span></li>
-        <li><span class="player">Patrick Reed</span><span class="earn">$1,587,000</span></li>
-        <li><span class="player">Adam Scott</span><span class="earn">$373,500</span></li>
-        <li><span class="player">Jake Knapp</span><span class="earn">$137,500</span></li>
-        <li><span class="player">Sungjae Im</span><span class="earn">$0</span></li>
-        <li><span class="player">J.J. Spaun</span><span class="earn">$100,500</span></li>
-        <li><span class="player">Ryan Gerard</span><span class="earn">$373,500</span></li>
-        <li><span class="player">Nico Echavarria</span><span class="earn">$0</span></li>
-        <li><span class="player">Bubba Watson</span><span class="earn">$0</span></li>
-        <li><span class="player">Zach Johnson</span><span class="earn">$64,000</span></li>
-      </ul>
-    </section>
-<section class="card">
-      <div class="head">
-        <div class="name">Mike Nagy</div>
-        <div class="total">
-          <span class="label">Total</span>
-          <span class="value">$2,656,500</span>
+    
+        <div class="row">
+          <div class="player">Bubba Watson</div>
+          <div class="earnings">$0</div>
         </div>
-      </div>
-      <ul>
-        <li><span class="player">Scottie Scheffler</span><span class="earn">$840,000</span></li>
-        <li><span class="player">Bryson DeChambeau</span><span class="earn">$0</span></li>
-        <li><span class="player">Ludvig Åberg</span><span class="earn">$100,500</span></li>
-        <li><span class="player">Akshay Bhatia</span><span class="earn">$137,500</span></li>
-        <li><span class="player">Adam Scott</span><span class="earn">$373,500</span></li>
-        <li><span class="player">Jake Knapp</span><span class="earn">$137,500</span></li>
-        <li><span class="player">Jacob Bridgeman</span><span class="earn">$630,000</span></li>
-        <li><span class="player">Marco Penge</span><span class="earn">$0</span></li>
-        <li><span class="player">Brian Harman</span><span class="earn">$0</span></li>
-        <li><span class="player">Sergio García</span><span class="earn">$373,500</span></li>
-        <li><span class="player">Bubba Watson</span><span class="earn">$0</span></li>
-        <li><span class="player">Zach Johnson</span><span class="earn">$64,000</span></li>
-      </ul>
-    </section>
-<section class="card">
-      <div class="head">
-        <div class="name">Ryan Ellson</div>
-        <div class="total">
-          <span class="label">Total</span>
-          <span class="value">$2,656,500</span>
+        
+        <div class="row">
+          <div class="player">Zach Johnson</div>
+          <div class="earnings">$0</div>
         </div>
-      </div>
-      <ul>
-        <li><span class="player">Scottie Scheffler</span><span class="earn">$840,000</span></li>
-        <li><span class="player">Jon Rahm</span><span class="earn">$0</span></li>
-        <li><span class="player">Matt Fitzpatrick</span><span class="earn">$100,500</span></li>
-        <li><span class="player">Robert MacIntyre</span><span class="earn">$0</span></li>
-        <li><span class="player">Adam Scott</span><span class="earn">$373,500</span></li>
-        <li><span class="player">Corey Conners</span><span class="earn">$64,000</span></li>
-        <li><span class="player">Jake Knapp</span><span class="earn">$137,500</span></li>
-        <li><span class="player">Harris English</span><span class="earn">$137,500</span></li>
-        <li><span class="player">Ryan Gerard</span><span class="earn">$373,500</span></li>
-        <li><span class="player">Aaron Rai</span><span class="earn">$630,000</span></li>
-        <li><span class="player">Bubba Watson</span><span class="earn">$0</span></li>
-        <li><span class="player">Davis Riley</span><span class="earn">$0</span></li>
-      </ul>
-    </section>
-<section class="card">
-      <div class="head">
-        <div class="name">Taylor Lee</div>
-        <div class="total">
-          <span class="label">Total</span>
-          <span class="value">$2,447,500</span>
+        
+        <div class="row">
+          <div class="player">Rory McIlroy</div>
+          <div class="earnings">$4,200,000</div>
         </div>
-      </div>
-      <ul>
-        <li><span class="player">Xander Schauffele</span><span class="earn">$840,000</span></li>
-        <li><span class="player">Ludvig Åberg</span><span class="earn">$100,500</span></li>
-        <li><span class="player">Cameron Young</span><span class="earn">$137,500</span></li>
-        <li><span class="player">Matt Fitzpatrick</span><span class="earn">$100,500</span></li>
-        <li><span class="player">Corey Conners</span><span class="earn">$64,000</span></li>
-        <li><span class="player">Si Woo Kim</span><span class="earn">$64,000</span></li>
-        <li><span class="player">Jake Knapp</span><span class="earn">$137,500</span></li>
-        <li><span class="player">Gary Woodland</span><span class="earn">$630,000</span></li>
-        <li><span class="player">Ryan Gerard</span><span class="earn">$373,500</span></li>
-        <li><span class="player">Brian Harman</span><span class="earn">$0</span></li>
-        <li><span class="player">Davis Riley</span><span class="earn">$0</span></li>
-        <li><span class="player">Danny Willett</span><span class="earn">$0</span></li>
-      </ul>
-    </section>
-<section class="card">
-      <div class="head">
-        <div class="name">Andrew MacRae</div>
-        <div class="total">
-          <span class="label">Total</span>
-          <span class="value">$2,419,000</span>
+        
+        <div class="row">
+          <div class="player">Sergio García</div>
+          <div class="earnings">$77,000</div>
         </div>
-      </div>
-      <ul>
-        <li><span class="player">Scottie Scheffler</span><span class="earn">$840,000</span></li>
-        <li><span class="player">Ludvig Åberg</span><span class="earn">$100,500</span></li>
-        <li><span class="player">Collin Morikawa</span><span class="earn">$100,500</span></li>
-        <li><span class="player">Hideki Matsuyama</span><span class="earn">$373,500</span></li>
-        <li><span class="player">Corey Conners</span><span class="earn">$64,000</span></li>
-        <li><span class="player">Shane Lowry</span><span class="earn">$840,000</span></li>
-        <li><span class="player">Cameron Smith</span><span class="earn">$100,500</span></li>
-        <li><span class="player">Sungjae Im</span><span class="earn">$0</span></li>
-        <li><span class="player">Brian Harman</span><span class="earn">$0</span></li>
-        <li><span class="player">Alex Noren</span><span class="earn">$0</span></li>
-        <li><span class="player">Bubba Watson</span><span class="earn">$0</span></li>
-        <li><span class="player">Davis Riley</span><span class="earn">$0</span></li>
-      </ul>
-    </section>
-<section class="card">
-      <div class="head">
-        <div class="name">Stephen Colletti</div>
-        <div class="total">
-          <span class="label">Total</span>
-          <span class="value">$2,154,500</span>
+        
+        <div class="row">
+          <div class="player">Brian Harman</div>
+          <div class="earnings">$67,500</div>
         </div>
-      </div>
-      <ul>
-        <li><span class="player">Bryson DeChambeau</span><span class="earn">$0</span></li>
-        <li><span class="player">Jon Rahm</span><span class="earn">$0</span></li>
-        <li><span class="player">Cameron Young</span><span class="earn">$137,500</span></li>
-        <li><span class="player">Matt Fitzpatrick</span><span class="earn">$100,500</span></li>
-        <li><span class="player">Corey Conners</span><span class="earn">$64,000</span></li>
-        <li><span class="player">Jason Day</span><span class="earn">$1,587,000</span></li>
-        <li><span class="player">Si Woo Kim</span><span class="earn">$64,000</span></li>
-        <li><span class="player">Jake Knapp</span><span class="earn">$137,500</span></li>
-        <li><span class="player">Max Greyserman</span><span class="earn">$0</span></li>
-        <li><span class="player">Rasmus Neergaard-Petersen</span><span class="earn">$0</span></li>
-        <li><span class="player">Sami Välimäki</span><span class="earn">$0</span></li>
-        <li><span class="player">Charl Schwartzel</span><span class="earn">$64,000</span></li>
-      </ul>
-    </section>
-<section class="card">
-      <div class="head">
-        <div class="name">Matt Scherer</div>
-        <div class="total">
-          <span class="label">Total</span>
-          <span class="value">$1,980,000</span>
+        
+        <div class="row">
+          <div class="player">Shane Lowry</div>
+          <div class="earnings">$1,120,000</div>
         </div>
-      </div>
-      <ul>
-        <li><span class="player">Scottie Scheffler</span><span class="earn">$840,000</span></li>
-        <li><span class="player">Jon Rahm</span><span class="earn">$0</span></li>
-        <li><span class="player">Ludvig Åberg</span><span class="earn">$100,500</span></li>
-        <li><span class="player">Matt Fitzpatrick</span><span class="earn">$100,500</span></li>
-        <li><span class="player">Adam Scott</span><span class="earn">$373,500</span></li>
-        <li><span class="player">Corey Conners</span><span class="earn">$64,000</span></li>
-        <li><span class="player">Si Woo Kim</span><span class="earn">$64,000</span></li>
-        <li><span class="player">Maverick McNealy</span><span class="earn">$0</span></li>
-        <li><span class="player">Ryan Gerard</span><span class="earn">$373,500</span></li>
-        <li><span class="player">Alex Noren</span><span class="earn">$0</span></li>
-        <li><span class="player">Sami Välimäki</span><span class="earn">$0</span></li>
-        <li><span class="player">Zach Johnson</span><span class="earn">$64,000</span></li>
-      </ul>
-    </section>
-<section class="card">
-      <div class="head">
-        <div class="name">Sam Bolstad</div>
-        <div class="total">
-          <span class="label">Total</span>
-          <span class="value">$1,606,500</span>
+        
+        <div class="row">
+          <div class="player">Si Woo Kim</div>
+          <div class="earnings">$67,500</div>
         </div>
-      </div>
-      <ul>
-        <li><span class="player">Scottie Scheffler</span><span class="earn">$840,000</span></li>
-        <li><span class="player">Jon Rahm</span><span class="earn">$0</span></li>
-        <li><span class="player">Ludvig Åberg</span><span class="earn">$100,500</span></li>
-        <li><span class="player">Min Woo Lee</span><span class="earn">$0</span></li>
-        <li><span class="player">Corey Conners</span><span class="earn">$64,000</span></li>
-        <li><span class="player">Si Woo Kim</span><span class="earn">$64,000</span></li>
-        <li><span class="player">Cameron Smith</span><span class="earn">$100,500</span></li>
-        <li><span class="player">Max Homa</span><span class="earn">$373,500</span></li>
-        <li><span class="player">Alex Noren</span><span class="earn">$0</span></li>
-        <li><span class="player">Tom McKibbin</span><span class="earn">$64,000</span></li>
-        <li><span class="player">Bubba Watson</span><span class="earn">$0</span></li>
-        <li><span class="player">Davis Riley</span><span class="earn">$0</span></li>
-      </ul>
-    </section>
+        
+        <div class="row">
+          <div class="player">Jason Day</div>
+          <div class="earnings">$781,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Corey Conners</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Ludvig Åberg</div>
+          <div class="earnings">$224,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Xander Schauffele</div>
+          <div class="earnings">$397,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Scottie Scheffler</div>
+          <div class="earnings">$224,000</div>
+        </div>
+        </section>
+      <section class="card">
+        <div class="top">
+          <div class="name">Darren Bilbao</div>
+          <div class="total-wrap">
+            <div class="total-label">Total</div>
+            <div class="total">$7,125,500</div>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="player">Ludvig Åberg</div>
+          <div class="earnings">$224,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Justin Rose</div>
+          <div class="earnings">$1,120,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Min Woo Lee</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Adam Scott</div>
+          <div class="earnings">$105,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Shane Lowry</div>
+          <div class="earnings">$1,120,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Sungjae Im</div>
+          <div class="earnings">$144,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Aaron Rai</div>
+          <div class="earnings">$144,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Rory McIlroy</div>
+          <div class="earnings">$4,200,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Nicolai Højgaard</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Davis Riley</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Sami Välimäki</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Brian Harman</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        </section>
+      <section class="card">
+        <div class="top">
+          <div class="name">Jude Kizer</div>
+          <div class="total-wrap">
+            <div class="total-label">Total</div>
+            <div class="total">$6,379,500</div>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="player">Viktor Hovland</div>
+          <div class="earnings">$105,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Rory McIlroy</div>
+          <div class="earnings">$4,200,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Patrick Cantlay</div>
+          <div class="earnings">$224,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Si Woo Kim</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Max Homa</div>
+          <div class="earnings">$397,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Sergio García</div>
+          <div class="earnings">$77,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Nick Taylor</div>
+          <div class="earnings">$303,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Davis Riley</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Fred Couples</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Ludvig Åberg</div>
+          <div class="earnings">$224,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Nicolai Højgaard</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Jason Day</div>
+          <div class="earnings">$781,500</div>
+        </div>
+        </section>
+      <section class="card">
+        <div class="top">
+          <div class="name">Sasha Tucker</div>
+          <div class="total-wrap">
+            <div class="total-label">Total</div>
+            <div class="total">$6,276,500</div>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="player">Bubba Watson</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Scottie Scheffler</div>
+          <div class="earnings">$224,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Rory McIlroy</div>
+          <div class="earnings">$4,200,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Collin Morikawa</div>
+          <div class="earnings">$303,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Adam Scott</div>
+          <div class="earnings">$105,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Corey Conners</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Ludvig Åberg</div>
+          <div class="earnings">$224,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Jason Day</div>
+          <div class="earnings">$781,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Si Woo Kim</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Nick Taylor</div>
+          <div class="earnings">$303,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Michael Kim</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Zach Johnson</div>
+          <div class="earnings">$0</div>
+        </div>
+        </section>
+      <section class="card">
+        <div class="top">
+          <div class="name">Will Borba</div>
+          <div class="total-wrap">
+            <div class="total-label">Total</div>
+            <div class="total">$5,942,500</div>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="player">Sam Burns</div>
+          <div class="earnings">$2,520,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Zach Johnson</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Haotong Li</div>
+          <div class="earnings">$781,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Brian Harman</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Sungjae Im</div>
+          <div class="earnings">$144,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Shane Lowry</div>
+          <div class="earnings">$1,120,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Robert MacIntyre</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">J.J. Spaun</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Matt Fitzpatrick</div>
+          <div class="earnings">$303,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Cameron Young</div>
+          <div class="earnings">$781,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Ludvig Åberg</div>
+          <div class="earnings">$224,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Mateo Pulcini (A)</div>
+          <div class="earnings">$0</div>
+        </div>
+        </section>
+      <section class="card">
+        <div class="top">
+          <div class="name">Kevin clark</div>
+          <div class="total-wrap">
+            <div class="total-label">Total</div>
+            <div class="total">$5,511,000</div>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="player">Jon Rahm</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Ludvig Åberg</div>
+          <div class="earnings">$224,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Davis Riley</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Patrick Reed</div>
+          <div class="earnings">$2,520,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Jordan Spieth</div>
+          <div class="earnings">$144,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Corey Conners</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Jason Day</div>
+          <div class="earnings">$781,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Jake Knapp</div>
+          <div class="earnings">$397,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Dustin Johnson</div>
+          <div class="earnings">$224,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Harry Hall</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Haotong Li</div>
+          <div class="earnings">$781,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Michael Brennan</div>
+          <div class="earnings">$303,500</div>
+        </div>
+        </section>
+      <section class="card">
+        <div class="top">
+          <div class="name">chris bencomo</div>
+          <div class="total-wrap">
+            <div class="total-label">Total</div>
+            <div class="total">$5,422,500</div>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="player">Rasmus Neergaard-Petersen</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Michael Brennan</div>
+          <div class="earnings">$303,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Akshay Bhatia</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Aaron Rai</div>
+          <div class="earnings">$144,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Gary Woodland</div>
+          <div class="earnings">$105,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Shane Lowry</div>
+          <div class="earnings">$1,120,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Scottie Scheffler</div>
+          <div class="earnings">$224,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Sam Burns</div>
+          <div class="earnings">$2,520,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Jason Day</div>
+          <div class="earnings">$781,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Ludvig Åberg</div>
+          <div class="earnings">$224,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Bryson DeChambeau</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Danny Willett</div>
+          <div class="earnings">$0</div>
+        </div>
+        </section>
+      <section class="card">
+        <div class="top">
+          <div class="name">Alex Grimm</div>
+          <div class="total-wrap">
+            <div class="total-label">Total</div>
+            <div class="total">$5,266,000</div>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="player">Shane Lowry</div>
+          <div class="earnings">$1,120,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Aldrich Potgieter</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Aaron Rai</div>
+          <div class="earnings">$144,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Gary Woodland</div>
+          <div class="earnings">$105,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Nicolai Højgaard</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Jason Day</div>
+          <div class="earnings">$781,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Patrick Reed</div>
+          <div class="earnings">$2,520,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Collin Morikawa</div>
+          <div class="earnings">$303,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Bryson DeChambeau</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Scottie Scheffler</div>
+          <div class="earnings">$224,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Bubba Watson</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Charl Schwartzel</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        </section>
+      <section class="card">
+        <div class="top">
+          <div class="name">Bob Monroe</div>
+          <div class="total-wrap">
+            <div class="total-label">Total</div>
+            <div class="total">$4,456,500</div>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="player">Matt Fitzpatrick</div>
+          <div class="earnings">$303,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Shane Lowry</div>
+          <div class="earnings">$1,120,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Ben Griffin</div>
+          <div class="earnings">$490,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Dustin Johnson</div>
+          <div class="earnings">$224,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Alex Noren</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Carlos Ortiz</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Bubba Watson</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Charl Schwartzel</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Xander Schauffele</div>
+          <div class="earnings">$397,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Scottie Scheffler</div>
+          <div class="earnings">$224,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Jason Day</div>
+          <div class="earnings">$781,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Cameron Young</div>
+          <div class="earnings">$781,500</div>
+        </div>
+        </section>
+      <section class="card">
+        <div class="top">
+          <div class="name">Conor Monahan</div>
+          <div class="total-wrap">
+            <div class="total-label">Total</div>
+            <div class="total">$3,971,500</div>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="player">Jacob Bridgeman</div>
+          <div class="earnings">$144,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Jackson Herrington (a)</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Davis Riley</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Max Greyserman</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Michael Kim</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Maverick McNealy</div>
+          <div class="earnings">$77,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Marco Penge</div>
+          <div class="earnings">$144,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Jake Knapp</div>
+          <div class="earnings">$397,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Patrick Reed</div>
+          <div class="earnings">$2,520,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Jon Rahm</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Xander Schauffele</div>
+          <div class="earnings">$397,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Scottie Scheffler</div>
+          <div class="earnings">$224,000</div>
+        </div>
+        </section>
+      <section class="card">
+        <div class="top">
+          <div class="name">Claire Maynard</div>
+          <div class="total-wrap">
+            <div class="total-label">Total</div>
+            <div class="total">$3,815,500</div>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="player">Michael Kim</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Nick Taylor</div>
+          <div class="earnings">$303,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Sungjae Im</div>
+          <div class="earnings">$144,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Shane Lowry</div>
+          <div class="earnings">$1,120,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Jake Knapp</div>
+          <div class="earnings">$397,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Scottie Scheffler</div>
+          <div class="earnings">$224,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Hideki Matsuyama</div>
+          <div class="earnings">$397,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Ludvig Åberg</div>
+          <div class="earnings">$224,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Bryson DeChambeau</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Bubba Watson</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Jason Day</div>
+          <div class="earnings">$781,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Brian Campbell</div>
+          <div class="earnings">$224,000</div>
+        </div>
+        </section>
+      <section class="card">
+        <div class="top">
+          <div class="name">Harry Horan</div>
+          <div class="total-wrap">
+            <div class="total-label">Total</div>
+            <div class="total">$3,712,000</div>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="player">Scottie Scheffler</div>
+          <div class="earnings">$224,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Casey Jarvis</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Jon Rahm</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Xander Schauffele</div>
+          <div class="earnings">$397,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Ludvig Åberg</div>
+          <div class="earnings">$224,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Corey Conners</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Si Woo Kim</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Sam Burns</div>
+          <div class="earnings">$2,520,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Maverick McNealy</div>
+          <div class="earnings">$77,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Alex Noren</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Bubba Watson</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Davis Riley</div>
+          <div class="earnings">$0</div>
+        </div>
+        </section>
+      <section class="card">
+        <div class="top">
+          <div class="name">Jason Maynard</div>
+          <div class="total-wrap">
+            <div class="total-label">Total</div>
+            <div class="total">$3,682,000</div>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="player">Ludvig Åberg</div>
+          <div class="earnings">$224,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Jon Rahm</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Zach Johnson</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Patrick Reed</div>
+          <div class="earnings">$2,520,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Bryson DeChambeau</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Adam Scott</div>
+          <div class="earnings">$105,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">J.J. Spaun</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Sungjae Im</div>
+          <div class="earnings">$144,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Ryan Gerard</div>
+          <div class="earnings">$224,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Nico Echavarria</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Bubba Watson</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Jake Knapp</div>
+          <div class="earnings">$397,000</div>
+        </div>
+        </section>
+      <section class="card">
+        <div class="top">
+          <div class="name">Jeff Elorriaga</div>
+          <div class="total-wrap">
+            <div class="total-label">Total</div>
+            <div class="total">$3,644,500</div>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="player">Jacob Bridgeman</div>
+          <div class="earnings">$144,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Ludvig Åberg</div>
+          <div class="earnings">$224,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Robert MacIntyre</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Corey Conners</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Sam Burns</div>
+          <div class="earnings">$2,520,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Xander Schauffele</div>
+          <div class="earnings">$397,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Daniel Berger</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Max Greyserman</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Alex Noren</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Scottie Scheffler</div>
+          <div class="earnings">$224,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Zach Johnson</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Danny Willett</div>
+          <div class="earnings">$0</div>
+        </div>
+        </section>
+      <section class="card">
+        <div class="top">
+          <div class="name">Matt Long</div>
+          <div class="total-wrap">
+            <div class="total-label">Total</div>
+            <div class="total">$3,451,000</div>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="player">Zach Johnson</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Scottie Scheffler</div>
+          <div class="earnings">$224,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Jon Rahm</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Collin Morikawa</div>
+          <div class="earnings">$303,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Brooks Koepka</div>
+          <div class="earnings">$490,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Jason Day</div>
+          <div class="earnings">$781,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Jake Knapp</div>
+          <div class="earnings">$397,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Shane Lowry</div>
+          <div class="earnings">$1,120,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Cameron Smith</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Brian Harman</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Nico Echavarria</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Bubba Watson</div>
+          <div class="earnings">$0</div>
+        </div>
+        </section>
+      <section class="card">
+        <div class="top">
+          <div class="name">Mike Killam</div>
+          <div class="total-wrap">
+            <div class="total-label">Total</div>
+            <div class="total">$3,446,500</div>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="player">Cameron Young</div>
+          <div class="earnings">$781,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Matt Fitzpatrick</div>
+          <div class="earnings">$303,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Akshay Bhatia</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Si Woo Kim</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Shane Lowry</div>
+          <div class="earnings">$1,120,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Max Homa</div>
+          <div class="earnings">$397,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Keegan Bradley</div>
+          <div class="earnings">$105,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Brian Harman</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Sergio García</div>
+          <div class="earnings">$77,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Michael Brennan</div>
+          <div class="earnings">$303,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Bubba Watson</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Ludvig Åberg</div>
+          <div class="earnings">$224,000</div>
+        </div>
+        </section>
+      <section class="card">
+        <div class="top">
+          <div class="name">Chalmers</div>
+          <div class="total-wrap">
+            <div class="total-label">Total</div>
+            <div class="total">$3,299,000</div>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="player">Scottie Scheffler</div>
+          <div class="earnings">$224,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Ludvig Åberg</div>
+          <div class="earnings">$224,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Brian Harman</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Charl Schwartzel</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Casey Jarvis</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Cameron Smith</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Shane Lowry</div>
+          <div class="earnings">$1,120,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Corey Conners</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Adam Scott</div>
+          <div class="earnings">$105,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Tommy Fleetwood</div>
+          <div class="earnings">$1,120,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Davis Riley</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Matt Fitzpatrick</div>
+          <div class="earnings">$303,500</div>
+        </div>
+        </section>
+      <section class="card">
+        <div class="top">
+          <div class="name">Shane Curran</div>
+          <div class="total-wrap">
+            <div class="total-label">Total</div>
+            <div class="total">$3,236,000</div>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="player">Sergio García</div>
+          <div class="earnings">$77,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Casey Jarvis</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">J.J. Spaun</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Gary Woodland</div>
+          <div class="earnings">$105,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Shane Lowry</div>
+          <div class="earnings">$1,120,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Jason Day</div>
+          <div class="earnings">$781,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Robert MacIntyre</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Zach Johnson</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Collin Morikawa</div>
+          <div class="earnings">$303,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Charl Schwartzel</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Bryson DeChambeau</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Cameron Young</div>
+          <div class="earnings">$781,500</div>
+        </div>
+        </section>
+      <section class="card">
+        <div class="top">
+          <div class="name">Parris Grieder</div>
+          <div class="total-wrap">
+            <div class="total-label">Total</div>
+            <div class="total">$3,117,000</div>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="player">Charl Schwartzel</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Tommy Fleetwood</div>
+          <div class="earnings">$1,120,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Bryson DeChambeau</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Michael Brennan</div>
+          <div class="earnings">$303,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Harry Hall</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Ryan Gerard</div>
+          <div class="earnings">$224,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">J.J. Spaun</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Jason Day</div>
+          <div class="earnings">$781,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Corey Conners</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Adam Scott</div>
+          <div class="earnings">$105,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Scottie Scheffler</div>
+          <div class="earnings">$224,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Ludvig Åberg</div>
+          <div class="earnings">$224,000</div>
+        </div>
+        </section>
+      <section class="card">
+        <div class="top">
+          <div class="name">Dylan Halesworth</div>
+          <div class="total-wrap">
+            <div class="total-label">Total</div>
+            <div class="total">$3,110,000</div>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="player">Ludvig Åberg</div>
+          <div class="earnings">$224,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Brian Campbell</div>
+          <div class="earnings">$224,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Davis Riley</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Michael Kim</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Brian Harman</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">J.J. Spaun</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Sungjae Im</div>
+          <div class="earnings">$144,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Shane Lowry</div>
+          <div class="earnings">$1,120,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Adam Scott</div>
+          <div class="earnings">$105,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Viktor Hovland</div>
+          <div class="earnings">$105,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Justin Rose</div>
+          <div class="earnings">$1,120,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Bryson DeChambeau</div>
+          <div class="earnings">$0</div>
+        </div>
+        </section>
+      <section class="card">
+        <div class="top">
+          <div class="name">Mike Leong</div>
+          <div class="total-wrap">
+            <div class="total-label">Total</div>
+            <div class="total">$2,869,500</div>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="player">Matt McCarty</div>
+          <div class="earnings">$144,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Bubba Watson</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Sami Välimäki</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Xander Schauffele</div>
+          <div class="earnings">$397,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Casey Jarvis</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Sungjae Im</div>
+          <div class="earnings">$144,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Jason Day</div>
+          <div class="earnings">$781,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Corey Conners</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Adam Scott</div>
+          <div class="earnings">$105,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Cameron Young</div>
+          <div class="earnings">$781,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Ludvig Åberg</div>
+          <div class="earnings">$224,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Scottie Scheffler</div>
+          <div class="earnings">$224,000</div>
+        </div>
+        </section>
+      <section class="card">
+        <div class="top">
+          <div class="name">Taylor Lee</div>
+          <div class="total-wrap">
+            <div class="total-label">Total</div>
+            <div class="total">$2,634,500</div>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="player">Si Woo Kim</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Ryan Gerard</div>
+          <div class="earnings">$224,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Danny Willett</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Xander Schauffele</div>
+          <div class="earnings">$397,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Ludvig Åberg</div>
+          <div class="earnings">$224,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Cameron Young</div>
+          <div class="earnings">$781,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Gary Woodland</div>
+          <div class="earnings">$105,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Corey Conners</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Jake Knapp</div>
+          <div class="earnings">$397,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Matt Fitzpatrick</div>
+          <div class="earnings">$303,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Davis Riley</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Brian Harman</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        </section>
+      <section class="card">
+        <div class="top">
+          <div class="name">Andrew MacRae</div>
+          <div class="total-wrap">
+            <div class="total-label">Total</div>
+            <div class="total">$2,615,500</div>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="player">Bubba Watson</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Ludvig Åberg</div>
+          <div class="earnings">$224,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Collin Morikawa</div>
+          <div class="earnings">$303,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Hideki Matsuyama</div>
+          <div class="earnings">$397,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Corey Conners</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Shane Lowry</div>
+          <div class="earnings">$1,120,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Cameron Smith</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Sungjae Im</div>
+          <div class="earnings">$144,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Brian Harman</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Alex Noren</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Scottie Scheffler</div>
+          <div class="earnings">$224,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Davis Riley</div>
+          <div class="earnings">$0</div>
+        </div>
+        </section>
+      <section class="card">
+        <div class="top">
+          <div class="name">Stephen Colletti</div>
+          <div class="total-wrap">
+            <div class="total-label">Total</div>
+            <div class="total">$2,533,500</div>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="player">Cameron Young</div>
+          <div class="earnings">$781,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Matt Fitzpatrick</div>
+          <div class="earnings">$303,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Corey Conners</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Jason Day</div>
+          <div class="earnings">$781,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Si Woo Kim</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Jake Knapp</div>
+          <div class="earnings">$397,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Max Greyserman</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Rasmus Neergaard-Petersen</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Sami Välimäki</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Charl Schwartzel</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Jon Rahm</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Bryson DeChambeau</div>
+          <div class="earnings">$0</div>
+        </div>
+        </section>
+      <section class="card">
+        <div class="top">
+          <div class="name">Kameron Niskefat</div>
+          <div class="total-wrap">
+            <div class="total-label">Total</div>
+            <div class="total">$2,363,500</div>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="player">Jake Knapp</div>
+          <div class="earnings">$397,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Ethan Fang (A)</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Davis Riley</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Aaron Rai</div>
+          <div class="earnings">$144,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Ryan Gerard</div>
+          <div class="earnings">$224,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Sungjae Im</div>
+          <div class="earnings">$144,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Jacob Bridgeman</div>
+          <div class="earnings">$144,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Akshay Bhatia</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Matt Fitzpatrick</div>
+          <div class="earnings">$303,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Cameron Young</div>
+          <div class="earnings">$781,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Scottie Scheffler</div>
+          <div class="earnings">$224,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Nicolai Højgaard</div>
+          <div class="earnings">$0</div>
+        </div>
+        </section>
+      <section class="card">
+        <div class="top">
+          <div class="name">Ryan Tucker</div>
+          <div class="total-wrap">
+            <div class="total-label">Total</div>
+            <div class="total">$1,960,000</div>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="player">Zach Johnson</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Charl Schwartzel</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Bryson DeChambeau</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Xander Schauffele</div>
+          <div class="earnings">$397,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Ludvig Åberg</div>
+          <div class="earnings">$224,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Corey Conners</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Scottie Scheffler</div>
+          <div class="earnings">$224,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Sungjae Im</div>
+          <div class="earnings">$144,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Max Homa</div>
+          <div class="earnings">$397,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Brian Harman</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Nick Taylor</div>
+          <div class="earnings">$303,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Si Woo Kim</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        </section>
+      <section class="card">
+        <div class="top">
+          <div class="name">bholsberry</div>
+          <div class="total-wrap">
+            <div class="total-label">Total</div>
+            <div class="total">$1,894,000</div>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="player">Jon Rahm</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Zach Johnson</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Brian Harman</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Aaron Rai</div>
+          <div class="earnings">$144,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">J.J. Spaun</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Daniel Berger</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Jacob Bridgeman</div>
+          <div class="earnings">$144,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Corey Conners</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Cameron Young</div>
+          <div class="earnings">$781,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Xander Schauffele</div>
+          <div class="earnings">$397,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Scottie Scheffler</div>
+          <div class="earnings">$224,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Mason Howell (A)</div>
+          <div class="earnings">$0</div>
+        </div>
+        </section>
+      <section class="card">
+        <div class="top">
+          <div class="name">Ryan Ellson</div>
+          <div class="total-wrap">
+            <div class="total-label">Total</div>
+            <div class="total">$1,757,000</div>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="player">Scottie Scheffler</div>
+          <div class="earnings">$224,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Jon Rahm</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Matt Fitzpatrick</div>
+          <div class="earnings">$303,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Robert MacIntyre</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Adam Scott</div>
+          <div class="earnings">$105,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Corey Conners</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Jake Knapp</div>
+          <div class="earnings">$397,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Harris English</div>
+          <div class="earnings">$224,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Ryan Gerard</div>
+          <div class="earnings">$224,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Aaron Rai</div>
+          <div class="earnings">$144,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Davis Riley</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Bubba Watson</div>
+          <div class="earnings">$0</div>
+        </div>
+        </section>
+      <section class="card">
+        <div class="top">
+          <div class="name">David Watkins</div>
+          <div class="total-wrap">
+            <div class="total-label">Total</div>
+            <div class="total">$1,640,000</div>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="player">Davis Riley</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Charl Schwartzel</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Jon Rahm</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Scottie Scheffler</div>
+          <div class="earnings">$224,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Ryan Gerard</div>
+          <div class="earnings">$224,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Sungjae Im</div>
+          <div class="earnings">$144,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Jacob Bridgeman</div>
+          <div class="earnings">$144,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Casey Jarvis</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Corey Conners</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Matt Fitzpatrick</div>
+          <div class="earnings">$303,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Xander Schauffele</div>
+          <div class="earnings">$397,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Nicolai Højgaard</div>
+          <div class="earnings">$0</div>
+        </div>
+        </section>
+      <section class="card">
+        <div class="top">
+          <div class="name">Matt Scherer</div>
+          <div class="total-wrap">
+            <div class="total-label">Total</div>
+            <div class="total">$1,427,500</div>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="player">Maverick McNealy</div>
+          <div class="earnings">$77,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Si Woo Kim</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Corey Conners</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Adam Scott</div>
+          <div class="earnings">$105,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Matt Fitzpatrick</div>
+          <div class="earnings">$303,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Ludvig Åberg</div>
+          <div class="earnings">$224,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Jon Rahm</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Scottie Scheffler</div>
+          <div class="earnings">$224,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Sami Välimäki</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Zach Johnson</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Alex Noren</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Ryan Gerard</div>
+          <div class="earnings">$224,000</div>
+        </div>
+        </section>
+      <section class="card">
+        <div class="top">
+          <div class="name">Mike Nagy</div>
+          <div class="total-wrap">
+            <div class="total-label">Total</div>
+            <div class="total">$1,383,500</div>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="player">Akshay Bhatia</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Adam Scott</div>
+          <div class="earnings">$105,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Jake Knapp</div>
+          <div class="earnings">$397,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Jacob Bridgeman</div>
+          <div class="earnings">$144,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Marco Penge</div>
+          <div class="earnings">$144,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Brian Harman</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Sergio García</div>
+          <div class="earnings">$77,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Bubba Watson</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Bryson DeChambeau</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Ludvig Åberg</div>
+          <div class="earnings">$224,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Zach Johnson</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Scottie Scheffler</div>
+          <div class="earnings">$224,000</div>
+        </div>
+        </section>
+      <section class="card">
+        <div class="top">
+          <div class="name">Sam Bolstad</div>
+          <div class="total-wrap">
+            <div class="total-label">Total</div>
+            <div class="total">$1,115,000</div>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="player">Davis Riley</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Scottie Scheffler</div>
+          <div class="earnings">$224,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Jon Rahm</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Ludvig Åberg</div>
+          <div class="earnings">$224,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Min Woo Lee</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Si Woo Kim</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Cameron Smith</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Max Homa</div>
+          <div class="earnings">$397,000</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Alex Noren</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Tom McKibbin</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Bubba Watson</div>
+          <div class="earnings">$0</div>
+        </div>
+        
+        <div class="row">
+          <div class="player">Corey Conners</div>
+          <div class="earnings">$67,500</div>
+        </div>
+        </section>
     </div>
   </div>
 </body>
